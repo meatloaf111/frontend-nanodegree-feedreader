@@ -59,7 +59,6 @@ $(function() {
     describe('The menu', function(){
 
 
-
         /* TODO: Write a test that ensures the menu element is
          * hidden by default. You'll have to analyze the HTML and
          * the CSS to determine how we're performing the
@@ -86,6 +85,9 @@ $(function() {
     });
 
     /* TODO: Write a new test suite named "Initial Entries" */
+    describe('Initial Entries', function(){
+
+
 
         /* TODO: Write a test that ensures when the loadFeed
          * function is called and completes its work, there is at least
@@ -94,10 +96,42 @@ $(function() {
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
 
+        beforeEach(done => {
+            loadFeed(1, () => {
+              window.firstFeed = document.querySelector('.entry-link').innerHTML;
+              done();
+            });
+          });
+          
+          it('at least single .entry element to be', (done) => {
+            expect(window.firstFeed).toBeDefined();
+            done();
+          });
+    });
+
     /* TODO: Write a new test suite named "New Feed Selection" */
 
         /* TODO: Write a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
+    describe('New Feed Selection', function(){
+
+        beforeEach(done => {
+            loadFeed(1, () => {
+              window.firstFeed = document.querySelector('.entry-link').innerHTML;
+              loadFeed(2, () => {
+                window.secondFeed = document.querySelector('.entry-link').innerHTML;
+                done();
+              });
+            });
+          });
+          
+          it('loads new feeds', (done) => {
+            expect(window.secondFeed !== window.firstFeed).toBe(true); done();
+          });
+
+
+    });    
+
 }());
