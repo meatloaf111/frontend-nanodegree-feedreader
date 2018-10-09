@@ -1,4 +1,4 @@
-# Udacity Classic Arcade Game
+# Udacity FeedReader
 This is a project assigned as a part of Udacity _Front-End Web Developer Nanodegree Program_.
 
 This is a web-based application that reads RSS feeds.
