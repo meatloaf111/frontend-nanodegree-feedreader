@@ -33,7 +33,7 @@ $(function() {
          */
         it('urls are defined', function() {
             for (var i=0; i < allFeeds.length; i++){
-                expect(allFeeds[i].url).toBeDefined;
+                expect(allFeeds[i].url).toBeDefined();
                 expect(allFeeds[i].url.length).not.toBe(0);
             }
         });
@@ -45,7 +45,7 @@ $(function() {
          */
         it('names are defined', function() {
             for (var i=0; i < allFeeds.length; i++){
-                expect(allFeeds[i].name).toBeDefined;
+                expect(allFeeds[i].name).toBeDefined();
                 expect(allFeeds[i].name.length).not.toBe(0);
             }
         });
