@@ -98,14 +98,12 @@ $(function() {
 
         beforeEach(done => {
             loadFeed(1, () => {
-              window.firstFeed = document.querySelector('.entry-link').innerHTML;
               done();
             });
           });
           
-          it('at least single .entry element to be', (done) => {
-            expect(window.firstFeed).toBeDefined();
-            done();
+          it('at least single .entry element to be', function() {
+            expect(document.querySelectorAll('.feed .entry').length).toBeGreaterThan(0);
           });
     });
 
